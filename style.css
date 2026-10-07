@@ -1,0 +1,376 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: #e5e5e0; /* Latar belakang Light Grey */
+  color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animasi Cahaya Kuning Lalu-Lalang 1 */
+.top-glow {
+  position: fixed;
+  top: -100px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 225, 77, 0.45) 0%, rgba(255, 225, 77, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(50px);
+  animation: moveYellowLight 12s infinite alternate ease-in-out;
+}
+
+/* Animasi Cahaya Kuning Lalu-Lalang 2 */
+body::before {
+  content: '';
+  position: fixed;
+  bottom: -150px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 235, 110, 0.35) 0%, rgba(255, 235, 110, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+  animation: moveYellowLightSecond 15s infinite alternate ease-in-out;
+}
+
+@keyframes moveYellowLight {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(400px, 300px) scale(1.3); }
+  100% { transform: translate(800px, -50px) scale(0.9); }
+}
+
+@keyframes moveYellowLightSecond {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-350px, -250px) scale(1.2); }
+  100% { transform: translate(-600px, 100px) scale(1); }
+}
+
+/* Layout Kontainer Utama */
+header, main {
+  width: 100%;
+  max-width: 850px;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  position: fixed;
+  top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #111;
+}
+
+nav .nav-btn {
+  text-decoration: none;
+  color: #555555;
+  margin-left: 20px;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+nav .nav-btn.active, nav .nav-btn:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+/* Container Konten Main */
+main {
+  margin-top: 100px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 50px 40px;
+  min-height: 500px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* Transisi Halus Saat Pindah Tab */
+.tab-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.tab-content.active {
+  display: block;
+  animation: tabFadeIn 0.4s forwards ease-out;
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero-title h1 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #111111;
+}
+
+.hero-title .subtitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #444440;
+}
+
+/* Grid Kartu Navigasi */
+.card-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.card-grid.three-cols { grid-template-columns: repeat(3, 1fr); }
+.card-grid.two-cols { grid-template-columns: repeat(2, 1fr); }
+.card-grid.one-col { grid-template-columns: 1fr; }
+
+.nav-card {
+  background: rgba(230, 230, 222, 0.8);
+  padding: 16px;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.25s ease, 
+              box-shadow 0.25s ease;
+}
+
+.nav-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 248, 200, 0.85);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-card:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+.card-img {
+  width: 100%;
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.nav-card span {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #111111;
+}
+
+/* Transisi Modal Overlay Pop-up */
+.overlay-view {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay-view.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-card {
+  background: #f0f0eb;
+  color: #111;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 20px;
+  padding: 35px;
+  position: relative;
+  max-height: 85vh;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 1px solid #ffffff;
+  transform: translateY(30px) scale(0.96);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overlay-view.active .overlay-card {
+  transform: translateY(0) scale(1);
+}
+
+.overlay-card.scrollable {
+  overflow-y: auto;
+}
+
+/* Tombol Back Bulat */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #d8d8d0;
+  color: #111111;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 102;
+  transition: background 0.2s, transform 0.15s ease;
+}
+
+.back-btn:hover {
+  background: #ffe680;
+  transform: scale(1.08);
+}
+
+.overlay-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.center-card {
+  text-align: center;
+}
+
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.greeting-tag {
+  font-weight: 700;
+  margin: 10px 0 15px;
+}
+
+.bio-text {
+  background: #e2e2da;
+  padding: 22px;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.contact-box {
+  margin-top: 25px;
+}
+
+.contact-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: 600;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.history-item {
+  display: flex;
+  gap: 20px;
+  background: #e2e2da;
+  padding: 18px;
+  border-radius: 16px;
+}
+
+.history-item .item-img {
+  width: 140px;
+  height: 110px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.history-item .item-desc h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.history-item .item-desc .year {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.history-item .item-desc p {
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.cv-card .cv-preview img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+@media (max-width: 700px) {
+  .card-grid.three-cols, .card-grid.two-cols { grid-template-columns: 1fr; }
+  .history-item { flex-direction: column; }
+  .history-item .item-img { width: 100%; height: 160px; }
+  .contact-links { flex-direction: column; gap: 8px; }
+}
