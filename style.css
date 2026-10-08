@@ -1,0 +1,680 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: #f7f7f5;
+  color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+header, main {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Navbar Float Minimalis */
+header {
+  position: fixed;
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: #ffffff;
+  border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e5e0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #111;
+}
+
+nav .nav-btn {
+  text-decoration: none;
+  color: #666;
+  margin-left: 20px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+nav .nav-btn.active, nav .nav-btn:hover {
+  color: #ffffff;
+  background-color: #111111;
+  text-decoration: none;
+}
+
+/* Main Container */
+main {
+  margin-top: 90px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 48px 40px;
+  min-height: 520px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid #eaeae5;
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.tab-content.active {
+  display: block;
+  animation: tabFadeIn 0.35s forwards ease-out;
+}
+
+@keyframes tabFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-title h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -1px;
+}
+
+.hero-title .subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #777770;
+  margin-top: 6px;
+}
+
+/* Grid Layout */
+.card-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.card-grid.three-cols { grid-template-columns: repeat(3, 1fr); }
+.card-grid.two-cols { grid-template-columns: repeat(2, 1fr); }
+.card-grid.one-col { grid-template-columns: 1fr; }
+
+/* Bento Card Style */
+.bento-card {
+  position: relative;
+  border-radius: 28px;
+  padding: 32px 28px 70px 28px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* Variasi Warna Solid */
+.card-orange {
+  background-color: #f96324;
+  color: #ffffff;
+}
+
+.card-purple {
+  background-color: #8b68f6;
+  color: #ffffff;
+}
+
+.card-lime {
+  background-color: #c7f255;
+  color: #1a1a1a;
+}
+
+.card-dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.bento-card .card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.bento-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.bento-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+/* Tombol Panah Lingkaran Pojok Kanan Bawah */
+.arrow-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background-color: #ffffff;
+  color: #111111;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.bento-card:hover .arrow-btn {
+  transform: scale(1.1) rotate(45deg);
+  background-color: #111111;
+  color: #ffffff;
+}
+
+/* Modal Pop-up Styling */
+.overlay-view {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.overlay-view.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-card {
+  background: #ffffff;
+  color: #111;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 32px;
+  padding: 40px;
+  position: relative;
+  max-height: 85vh;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  border: 1px solid #eaeaea;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overlay-view.active .overlay-card {
+  transform: translateY(0) scale(1);
+}
+
+.overlay-card.scrollable {
+  overflow-y: auto;
+}
+
+.back-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: #f0f0eb;
+  color: #111111;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 102;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.overlay-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+
+.center-card {
+  text-align: center;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  background-size: cover;
+  background-position: center;
+  border: 4px solid #f7f7f5;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.greeting-tag {
+  font-weight: 800;
+  color: #f96324;
+  margin: 8px 0 16px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.bio-text {
+  position: relative;
+  padding: 24px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+  background-color: #f7f7f5;
+  border: 1px solid #eaeae5;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bio-text::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('ian.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px) brightness(0.6);
+  opacity: 0.18;
+  z-index: -1;
+}
+
+.contact-box {
+  margin-top: 24px;
+}
+
+.contact-title {
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #888;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* Button Contact Links */
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Button Instagram Gradasi */
+.contact-btn.btn-ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff;
+}
+
+/* Button WhatsApp */
+.contact-btn.btn-wa {
+  background-color: #25d366;
+  color: #ffffff;
+}
+
+.contact-btn .btn-arrow {
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.contact-btn:hover .btn-arrow {
+  transform: scale(1.1) rotate(45deg);
+}
+
+/* History List dalam Modal */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.history-item {
+  padding: 22px;
+  border-radius: 22px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.history-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.history-item .item-desc {
+  flex: 1;
+}
+
+.history-item h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.history-item .year {
+  font-weight: 700;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.history-item p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.history-item .item-arrow {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 16px;
+  transition: transform 0.25s ease;
+}
+
+.history-item:hover .item-arrow {
+  transform: scale(1.2) rotate(45deg);
+}
+
+.cv-card .cv-preview img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* Styling Hobbies Section */
+.hobby-block {
+  margin-bottom: 36px;
+}
+
+.hobby-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.hobby-block h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.hobby-sub {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.spotify-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #1db954;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.spotify-profile-btn:hover {
+  transform: translateY(-2px);
+  background-color: #1aa34a;
+}
+
+/* Custom Music Player Layout */
+.custom-music-player {
+  background: #1e1e1e;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.player-cover {
+  width: 110px;
+  height: 110px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.player-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.song-details h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.song-details p {
+  font-size: 0.88rem;
+  color: #aaaaaa;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.progress-container {
+  margin-bottom: 12px;
+}
+
+.progress-container input[type="range"] {
+  width: 100%;
+  accent-color: #f96324;
+  cursor: pointer;
+  height: 5px;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #888888;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+}
+
+#play-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  color: #111111;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  padding-left: 2px;
+}
+
+#play-btn:hover {
+  transform: scale(1.08);
+  background-color: #f96324;
+  color: #ffffff;
+}
+
+/* Single Movie Card Styling */
+.single-movie-card {
+  background: #f7f7f5;
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid #eaeae5;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.movie-poster {
+  width: 140px;
+  aspect-ratio: 2/3;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-details {
+  flex: 1;
+}
+
+.movie-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.movie-year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #888888;
+  margin-bottom: 12px;
+}
+
+.movie-synopsis {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #444444;
+  margin-bottom: 20px;
+}
+
+.netflix-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e50914;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.netflix-btn span {
+  font-weight: 900;
+}
+
+.netflix-btn:hover {
+  transform: translateY(-2px);
+  background-color: #b80710;
+}
+
+/* Modal detail tingkat kedua */
+.overlay-view.detail-overlay {
+  z-index: 120;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.detail-content {
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+@media (max-width: 750px) {
+  .card-grid.three-cols, .card-grid.two-cols { grid-template-columns: 1fr; }
+  .contact-buttons { flex-direction: column; gap: 8px; }
+  .contact-btn { justify-content: center; }
+  .custom-music-player { flex-direction: column; text-align: center; }
+  .player-info { width: 100%; }
+  .player-controls { justify-content: center; }
+  .single-movie-card { flex-direction: column; align-items: center; text-align: center; }
+  .movie-poster { width: 160px; }
+}
