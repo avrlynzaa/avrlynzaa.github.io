@@ -18,7 +18,6 @@ body {
 }
 
 /* ================= EFEK ANIMASI CAHAYA BERGERAK DI BACKGROUND ================= */
-/* Cahaya 1: Pendaran Oranye Soft */
 body::before {
   content: '';
   position: fixed;
@@ -34,7 +33,6 @@ body::before {
   animation: moveGlowOne 16s infinite alternate ease-in-out;
 }
 
-/* Cahaya 2: Pendaran Ungu Soft */
 body::after {
   content: '';
   position: fixed;
@@ -51,27 +49,15 @@ body::after {
 }
 
 @keyframes moveGlowOne {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(350px, 200px) scale(1.25);
-  }
-  100% {
-    transform: translate(700px, -50px) scale(0.9);
-  }
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(350px, 200px) scale(1.25); }
+  100% { transform: translate(700px, -50px) scale(0.9); }
 }
 
 @keyframes moveGlowTwo {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-300px, -200px) scale(1.2);
-  }
-  100% {
-    transform: translate(-550px, 80px) scale(0.95);
-  }
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-300px, -200px) scale(1.2); }
+  100% { transform: translate(-550px, 80px) scale(0.95); }
 }
 
 header, main {
@@ -191,7 +177,6 @@ main {
   overflow: hidden;
 }
 
-/* Variasi Warna Solid */
 .card-orange {
   background-color: #f96324;
   color: #ffffff;
@@ -230,7 +215,6 @@ main {
   line-height: 1.4;
 }
 
-/* Tombol Panah Lingkaran Pojok Kanan Bawah */
 .arrow-btn {
   position: absolute;
   bottom: 20px;
@@ -337,9 +321,7 @@ main {
   letter-spacing: -0.5px;
 }
 
-.center-card {
-  text-align: center;
-}
+.center-card { text-align: center; }
 
 .avatar {
   width: 110px;
@@ -386,9 +368,7 @@ main {
   z-index: -1;
 }
 
-.contact-box {
-  margin-top: 24px;
-}
+.contact-box { margin-top: 24px; }
 
 .contact-title {
   font-weight: 700;
@@ -398,7 +378,6 @@ main {
   text-transform: uppercase;
 }
 
-/* Button Contact Links */
 .contact-buttons {
   display: flex;
   justify-content: center;
@@ -447,7 +426,6 @@ main {
   transform: scale(1.1) rotate(45deg);
 }
 
-/* History List dalam Modal */
 .history-list {
   display: flex;
   flex-direction: column;
@@ -470,9 +448,7 @@ main {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.history-item .item-desc {
-  flex: 1;
-}
+.history-item .item-desc { flex: 1; }
 
 .history-item h3 {
   font-size: 1.2rem;
@@ -504,15 +480,76 @@ main {
   transform: scale(1.2) rotate(45deg);
 }
 
-.cv-card .cv-preview img {
+/* WARNA TEKS DENGAN TAG LINK A */
+.history-list a.history-item {
+  text-decoration: none;
+}
+
+a.history-item.card-orange,
+a.history-item.card-purple,
+a.history-item.card-dark {
+  color: #ffffff !important;
+}
+
+a.history-item.card-orange h3,
+a.history-item.card-orange p,
+a.history-item.card-orange .item-arrow,
+a.history-item.card-purple h3,
+a.history-item.card-purple p,
+a.history-item.card-purple .item-arrow,
+a.history-item.card-dark h3,
+a.history-item.card-dark p,
+a.history-item.card-dark .item-arrow {
+  color: #ffffff !important;
+}
+
+a.history-item.card-lime {
+  color: #1a1a1a !important;
+}
+
+/* PDF CONTAINER & BUTTON STYLING */
+.pdf-container {
   width: 100%;
-  border-radius: 20px;
+  height: 520px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #eaeae5;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pdf-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cv-download-box {
+  display: flex;
+  justify-content: center;
+}
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #111111;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.cv-download-btn:hover {
+  transform: translateY(-2px);
+  background-color: #f96324;
 }
 
 /* Styling Hobbies Section */
-.hobby-block {
-  margin-bottom: 36px;
-}
+.hobby-block { margin-bottom: 36px; }
 
 .hobby-header {
   display: flex;
@@ -552,7 +589,6 @@ main {
   background-color: #1aa34a;
 }
 
-/* Custom Music Player Layout */
 .custom-music-player {
   background: #1e1e1e;
   color: #ffffff;
@@ -600,9 +636,7 @@ main {
   margin-bottom: 14px;
 }
 
-.progress-container {
-  margin-bottom: 12px;
-}
+.progress-container { margin-bottom: 12px; }
 
 .progress-container input[type="range"] {
   width: 100%;
@@ -620,10 +654,7 @@ main {
   margin-top: 4px;
 }
 
-.player-controls {
-  display: flex;
-  align-items: center;
-}
+.player-controls { display: flex; align-items: center; }
 
 #play-btn {
   width: 42px;
@@ -648,7 +679,6 @@ main {
   color: #ffffff;
 }
 
-/* Single Movie Card Styling */
 .single-movie-card {
   background: #f7f7f5;
   border-radius: 24px;
@@ -674,9 +704,7 @@ main {
   object-fit: cover;
 }
 
-.movie-details {
-  flex: 1;
-}
+.movie-details { flex: 1; }
 
 .movie-title {
   font-size: 1.3rem;
@@ -714,9 +742,7 @@ main {
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.netflix-btn span {
-  font-weight: 900;
-}
+.netflix-btn span { font-weight: 900; }
 
 .netflix-btn:hover {
   transform: translateY(-2px);
@@ -736,7 +762,6 @@ main {
   color: #333;
 }
 
-/* Styling Gambar pada Modal Detail Penjelasan */
 .detail-img {
   width: 100%;
   max-height: 320px;
@@ -755,10 +780,5 @@ main {
   .player-controls { justify-content: center; }
   .single-movie-card { flex-direction: column; align-items: center; text-align: center; }
   .movie-poster { width: 160px; }
-}
-
-/* Menjaga tampilan teks tautan tetap rapi */
-.history-list a.history-item {
-  text-decoration: none;
-  color: white;
+  .pdf-container { height: 380px; }
 }
