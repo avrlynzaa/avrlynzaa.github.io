@@ -256,14 +256,13 @@
     </div>
   </div>
 
-  <!-- Archive Modal -->
+  <!-- Archive Modal (Link Langsung) -->
   <div id="archive-section" class="overlay-view">
     <div class="overlay-card scrollable">
       <button class="back-btn" onclick="closeOverlay('archive-section')">⟵</button>
       <h2 class="overlay-title">archive</h2>
       <div class="history-list">
-        <!-- Item 1: Ubah div menjadi tag <a> dan masukkan link tujuan kamu di href -->
-        <a href="https://www.instagram.com/reel/C76ZgLwp-c6/?utm_source=ig_web_copy_link&vrfl=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="history-item card-orange">
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="history-item card-orange">
           <div class="item-desc">
             <h3>Recap Video: Bali TRIP</h3>
             <p class="year">2024</p>
@@ -271,9 +270,7 @@
           </div>
           <div class="item-arrow">↗</div>
         </a>
-
-        <!-- Item 2: Ubah div menjadi tag <a> dan masukkan link tujuan kamu di href -->
-        <a href="https://www.instagram.com/reel/C1BQ8ZQJCXx/?utm_source=ig_web_copy_link&vrfl=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="history-item card-purple">
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="history-item card-purple">
           <div class="item-desc">
             <h3>Recap Video: Sumber Maron TRIP</h3>
             <p class="year">2023</p>
@@ -285,12 +282,22 @@
     </div>
   </div>
 
-  <!-- Curriculum Vitae Modal -->
+  <!-- Curriculum Vitae Modal (Memuat PDF) -->
   <div id="cv-section" class="overlay-view">
     <div class="overlay-card scrollable cv-card">
       <button class="back-btn" onclick="closeOverlay('cv-section')">⟵</button>
-      <div class="cv-preview">
-        <img src="assets/cv-document.png" alt="Curriculum Vitae Hernawan Aprilianda Hamzah">
+      <h2 class="overlay-title">Curriculum Vitae</h2>
+      
+      <!-- Embed Viewer PDF -->
+      <div class="pdf-container">
+        <iframe src="CV_Hernawan Aprilianda Hamzah.pdf" type="application/pdf"></iframe>
+      </div>
+
+      <!-- Tombol Unduh PDF -->
+      <div class="cv-download-box">
+        <a href="CV_Hernawan Aprilianda Hamzah.pdf" download class="cv-download-btn">
+          <span>Unduh CV (PDF)</span> 📥
+        </a>
       </div>
     </div>
   </div>
@@ -340,7 +347,7 @@
         </div>
       </div>
 
-      <!-- Movies Section (Single Movie View) -->
+      <!-- Movies Section -->
       <div class="hobby-block">
         <h3>🎬 Favorite Movie</h3>
         <p class="hobby-sub">Film favorit pilihan:</p>
@@ -365,8 +372,7 @@
     </div>
   </div>
 
-
-  <!-- ================= DETAIL OVERLAYS (HALAMAN PENJELASAN ITEM WITH IMAGES) ================= -->
+  <!-- ================= DETAIL OVERLAYS (HALAMAN PENJELASAN ITEM) ================= -->
 
   <!-- Education Details -->
   <div id="detail-sdit" class="overlay-view detail-overlay">
@@ -385,8 +391,8 @@
       <button class="back-btn" onclick="closeDetail('detail-smp28')">⟵</button>
       <h2 class="overlay-title">SMP Negeri 28 Surabaya</h2>
       <div class="detail-content">
-        <img src="smp28.jpeg" alt="SMP Negeri 28 Surabaya" class="detail-img">
-        <p>Setelah berpetualang di SDIT At-Taqwa, saya melanjutkan jenjang pendidikan menengah di SMP Negeri 28 Surabaya. Meskipun banyak hal-hal tidak menyenangkan, tapi saya bersyukur dapat bersekolah disini. </p>
+        <img src="smp28.jpg" alt="SMP Negeri 28 Surabaya" class="detail-img">
+        <p>Setelah berpetualang di SDIT At-Taqwa, saya melanjutkan jenjang pendidikan menengah di SMP Negeri 28 Surabaya. Meskipun banyak hal-hal tidak menyenangkan, tapi saya bersyukur dapat bersekolah disini.</p>
       </div>
     </div>
   </div>
@@ -419,7 +425,8 @@
       <button class="back-btn" onclick="closeDetail('detail-pdd-anggota')">⟵</button>
       <h2 class="overlay-title">Anggota Divisi PDD OSIS</h2>
       <div class="detail-content">
-        <p>Pada tahun 2021 sampai dengan 2022, saya menjabat sebagai anggota seksi bidang 9 di OSIS SMK Ketintang, atau lebih dikenal dengan Tim PDD OSIS. Di 1 periode tersebut, saya memetik banyak sekali ilmu dari para senior maupun pembimbing di sekolah.</p>
+        <img src="pdd-anggota.jpg" alt="Anggota Divisi PDD" class="detail-img">
+        <p>Tuliskan tugas, tanggung jawab, dan dokumentasi di sini...</p>
       </div>
     </div>
   </div>
@@ -429,7 +436,8 @@
       <button class="back-btn" onclick="closeDetail('detail-pdd-koor')">⟵</button>
       <h2 class="overlay-title">Koordinator Divisi PDD</h2>
       <div class="detail-content">
-        <p>Pada tahun 2022 sampai dengan 2023, saya mengemban amanah sebagai Koordinator Tim PDD OSIS SMK Ketintang. Di 1 periode ini, ada banyak hal yang saya lakukan. Termasuk merombak total Program Kerja (Proker) dari Tim PDD OSIS yang saya rasa repetitif dan monoton.</p>
+        <img src="pdd-koor.jpg" alt="Koordinator Divisi PDD" class="detail-img">
+        <p>Tuliskan tugas, tanggung jawab, dan dokumentasi di sini...</p>
       </div>
     </div>
   </div>
@@ -439,7 +447,8 @@
       <button class="back-btn" onclick="closeDetail('detail-internal-mmb')">⟵</button>
       <h2 class="overlay-title">Anggota Divisi Internal HIMA MMB</h2>
       <div class="detail-content">
-        <p>Di tahun 2025, saya mendapatkan kepercayaan untuk menjabat di bidang Internal Himpunan Mahasiswa MMB. Dengan berbekal pengalaman berorganisasi pada saat sekolah, saya cukup cepat untuk beradaptasi dengan lingkungan organisasi di Perguruan Tinggi. Namun masih banyak ilmu-ilmu yang saya dapatkan dari senior-senior saya di HIMA MMB ini.</p>
+        <img src="internal-mmb.jpg" alt="Anggota Divisi Internal HIMA MMB" class="detail-img">
+        <p>Tuliskan tugas, tanggung jawab, dan dokumentasi di sini...</p>
       </div>
     </div>
   </div>
@@ -449,7 +458,8 @@
       <button class="back-btn" onclick="closeDetail('detail-internal-bso')">⟵</button>
       <h2 class="overlay-title">Anggota Divisi Internal BSO TRM</h2>
       <div class="detail-content">
-        <p>Pada tahun 2026 ini, saya mendapatkan kesempatan untuk menjabat sekaligus menjadi Tim Pembentukan/ADHOC Badan Semi Otonom Teknologi Rekayasa Multimedia. Berbekal pengalaman di Himpunan pada tahun sebelumnya, saya dapat mengoptimalkan kemampuan saya, terhitung dari sekarang hingga akhir periode nanti.</p>
+        <img src="internal-bso.jpg" alt="Anggota Divisi Internal BSO TRM" class="detail-img">
+        <p>Tuliskan tugas, tanggung jawab, dan dokumentasi di sini...</p>
       </div>
     </div>
   </div>
@@ -460,7 +470,8 @@
       <button class="back-btn" onclick="closeDetail('detail-mr')">⟵</button>
       <h2 class="overlay-title">Treasure Hunt: Galaxy Mall</h2>
       <div class="detail-content">
-        <p>Pada semester 4 ini, pada mata kuliah Mixed Reality, kelas kami mendapatkan tugas untuk scanning sekaligus membuat game interaktif berbasis Unity di Galaxy Mall 3. Project ini merupakan project terberat dalam beberapa semester ini dikarenakan banyaknya tantangan. Mulai dari area mall yang luas, proses scanning yang lama, hingga perizinan store yang sedikit sulit.</p>
+        <img src="project-mr.jpg" alt="Treasure Hunt Mixed Reality" class="detail-img">
+        <p>Tuliskan detail teknis, screenshot project, atau tautan demo di sini...</p>
       </div>
     </div>
   </div>
@@ -470,7 +481,8 @@
       <button class="back-btn" onclick="closeDetail('detail-mobile')">⟵</button>
       <h2 class="overlay-title">Doctor Appointment App</h2>
       <div class="detail-content">
-        <p>Pada semester 4 ini, pada mata kuliah Pemrograman Mobile, kelompok kami mengusung tema aplikasi janji temu atau antrian dokter. Tema ini masih sangat relevan karena banyaknya tenaga medis dan rumah sakit yang memerlukan digitalisasi pada sistemnya. Namun project ini belum terafiliasi dengan kedokteran. Hanya project akademis.</p>
+        <img src="project-mobile.jpg" alt="Doctor Appointment App" class="detail-img">
+        <p>Tuliskan detail teknis, screenshot project, atau tautan demo di sini...</p>
       </div>
     </div>
   </div>
@@ -480,18 +492,11 @@
       <button class="back-btn" onclick="closeDetail('detail-uiux')">⟵</button>
       <h2 class="overlay-title">Anti Runner Website</h2>
       <div class="detail-content">
-        <p>Pada semester 4 ini, pada mata kuliah Desain UI/UX, kelas kami mendapatkan untuk mendesain web interaktif dengan tema Pelari di region surabaya dan sekitarnya. Saya mengusung judul web Anti Runner, dimana web yang saya bangun ini memfokuskan untuk para pelari yang memang serius dan tidak FOMO.</p>
+        <img src="project-uiux.jpg" alt="Anti Runner Website UI/UX" class="detail-img">
+        <p>Tuliskan detail teknis, screenshot project, atau link Figma di sini...</p>
       </div>
-      <br>
-      <div class="contact-buttons">
-          <a href="https://www.figma.com/proto/llzehMRx9Aq3i4rCAgUx5n/UI-UX-Ian?node-id=1-2&p=f&viewport=170%2C157%2C0.05&t=QlvqgsvY8k4YtO94-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2&page-id=0%3A1" target="_blank" rel="noopener noreferrer" class="contact-btn btn-figma">
-            <span>Figma</span>
-            <span class="btn-arrow">↗</span>
-          </a>
     </div>
   </div>
-
-
 
   <script src="script.js"></script>
 </body>
